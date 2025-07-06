@@ -1,0 +1,286 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+h1 {
+    margin-top: 10%;
+    text-align: center;
+    color: #fff;
+}
+
+.watch-img {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    /* ensures the image fits within the area without cropping */
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    /* optional background for contrast */
+    padding: 5px;
+    /* optional padding */
+}
+
+.cart-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 40px;
+}
+
+.cart-left {
+    width: 50%;
+    margin-left: 200px;
+    margin-top: 80px;
+    color: #1A1A1A;
+    background-color: #F8F8F8;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.cart-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-details h4 {
+    margin: 0 0 5px;
+}
+
+.cart-right {
+    width: 30%;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    height: fit-content;
+    margin-left: 250px;
+    margin-top: 80px;
+    margin-right: 100px;
+}
+
+.price-details p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.btn-danger {
+    background-color: crimson;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Navigation Bar */
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    top: 0%;
+    left: 0%;
+    background-color: #212121;
+    overflow: hidden;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1111;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    width: 60px;
+    height: 45px;
+    display: inline-block;
+}
+
+.header ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.header li {
+    display: inline-block;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header li:hover {
+    color: #8C0781;
+    transform: translateY(-2px);
+}
+
+/* Navigation container */
+.nav-left {
+    display: flex;
+    padding: 0;
+}
+
+.nav-left li {
+    position: relative;
+}
+
+.nav-left button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 14px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-left button:hover {
+    color: #8C0781;
+}
+
+/* Show dropdown on hover */
+.nav-left li:hover .dropdown-content {
+    display: block;
+}
+
+.nav-right {
+    position: absolute;
+    right: -85%;
+    width: 5px;
+    height: 50px;
+    color: #ddd;
+}
+
+/* Dropdown content container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    color: black;
+    font-size: 12px;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #e0e0e0;
+}
+
+/*Footer styling*/
+footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #1A1A1A;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin: 0;
+}
+
+footer .logo {
+    margin-bottom: 30px;
+    width: 100px;
+    height: auto;
+}
+
+footer h4 {
+    font-size: 18px;
+    padding-bottom: 20px;
+    color: oldlace;
+}
+
+footer p {
+    font-size: 16px;
+    color: oldlace;
+    margin: 0 0 8px 0;
+}
+
+footer a {
+    font-size: 16px;
+    text-decoration: none;
+    color: oldlace;
+    margin: 0 0 10px 0;
+}
+
+footer .follow {
+    margin-top: 20px;
+}
+
+footer .follow i {
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+footer .install .row img {
+    border: 1px solid #088178;
+    border-radius: 6px;
+    margin: 10px 10px 10px 10px;
+}
+
+footer .follow i:hover,
+footer a:hover {
+    color: #088178;
+}
+
+footer .copyright {
+    width: 100%;
+    text-align: center;
+}
+
+.section-p1 {
+    padding-left: 20px;
+    padding-right: 20px;
+}

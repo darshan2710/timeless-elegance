@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="Logo1.png" class="logo">
+            <ul class="nav-left">
+                <li>
+                    <button onclick="location.href='index.html'">Home</button>
+                </li>
+                <li>
+                    <button>Category <i class="fa-solid fa-angle-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#">Men</a>
+                        <a href="#">Women</a>
+                        <a href="#">Unisex</a>
+                    </div>
+                </li>
+                <li>
+                    <button>Brands <i class="fa-solid fa-angle-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#">Rolex</a>
+                        <a href="#">Omega</a>
+                        <a href="#">Glashütte</a>
+                        <a href="#">Bvlgari</a>
+                        <a href="#">Tudor</a>
+                        <a href="#">Longines</a>
+                        <a href="#">Zenith</a>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="location.href='contact.html'">Contact Us</button>
+                </li>
+            </ul>
+            <ul class="nav-right">
+                <li>
+                    <a href="favourite.html">
+                        <svg class="w-[40px] h-[40px] text-white-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="cart.html">
+                        <svg class="w-[40px] h-[40px] text-white-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <svg class="w-[40px] h-[40px] text-white-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="cart-wrapper">
+            <!-- Left: Cart Items -->
+            <div class="cart-left" id="cart-items">
+                <h2>ORDER SUMMARY</h2>
+                <!-- Items will be added here dynamically -->
+            </div>
+
+            <!-- Right: Price Details -->
+            <div class="cart-right">
+                <button id="empty-cart" class="btn-danger">Empty Cart</button>
+
+                <div class="price-details">
+                    <h2>PRICE DETAILS</h2>
+                    <p>Subtotal: ₹<span id="subtotal">0</span></p>
+                    <p>Shipping: ₹<span id="shipping">1000</span></p>
+                    <hr>
+                    <p><strong>Total: ₹<span id="total">0</span></strong></p>
+                </div>
+
+                <button class="btn-success">Proceed to Shipping</button>
+            </div>
+        </div>
+    </div>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="Logo1.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Surat, Gujarat - 394180 </p>
+            <p><strong>Phone:</strong> +91-98765-4321</p>
+            <p><strong>Hours:</strong> 10:00 - 20:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In/ Sign Up</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install App</h4>
+            <div class="row">
+                <a href="https://www.apple.com/in/app-store/">
+                    <img src="app.jpg" alt="">
+                </a>
+                <a href="https://play.google.com/store/apps?hl=en_IN">
+                    <img src="play.jpg" alt="">
+                </a>
+            </div>
+            <p>Secured Payment Gateway</p>
+            <img src="pay.png" alt="">
+        </div>
+        <div class="copyright">
+            <p>Created By Darshan Dixit | All Rights Reserved | &#169; 2025</p>
+        </div>
+    </footer>
+</body>
+<script src="cart.js"></script>
+
+</html>
