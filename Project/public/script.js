@@ -8,7 +8,6 @@ function addToCart(productName, price) {
         body : JSON.stringify({productName, price})
     })
         .then(response => {
-            // Check if the response is successful
             if (!response.ok) {
                 throw new Error('Failed to add item to cart');
             }
@@ -16,7 +15,6 @@ function addToCart(productName, price) {
         })
         .then(data => {
             console.log(data);
-            // Optionally, you could display a success message or update UI here
             showSuccessPopup();
         })
         .catch(error => {
@@ -37,7 +35,18 @@ function showSuccessPopup() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.querySelector("canvas");
+    const getStartedBtn = document.getElementById("getStartedBtn");
+    if (getStartedBtn) {
+        getStartedBtn.addEventListener("click", function() {
+            const intro = document.getElementById("intro");
+            if (intro) {
+                intro.style.display = "none";
+                window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+            }
+        });
+    }
+    
+    const canvas = document.getElementById("frame");
     const context = canvas.getContext("2d");
 
     const frames = {
@@ -75,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
+    // Preload images
     function preLoadImages() {
         for (let i = 0; i <= frames.maxIndex; i++) {
             const imageUrl = `./Watch/frame_${(i + 1).toString().padStart(4, "0")}.jpg`;
@@ -83,20 +93,19 @@ document.addEventListener("DOMContentLoaded", () => {
             img.onload = () => {
                 imagesLoaded++;
                 if (imagesLoaded === frames.maxIndex) {
-                    loadImage(frames.currentIndex);
-                    startCanvasAnimation();
+                    drawFrame(frames.currentIndex);
                 }
             };
             images.push(img);
         }
     }
 
-    function loadImage(index) {
-        if (index >= 0 && index <= frames.maxIndex) {
-            const image = images[index];
+    function drawFrame(index) {
+        if (images[index] && images[index].complete) {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
+            const image = images[index];
             const scaleX = canvas.width / image.width;
             const scaleY = canvas.height / image.height;
             const scale = Math.max(scaleX, scaleY);
@@ -111,49 +120,39 @@ document.addEventListener("DOMContentLoaded", () => {
             context.imageSmoothingEnabled = true;
             context.imageSmoothingQuality = "high";
             context.drawImage(image, offsetX, offsetY, newWidth, newHeight);
-            frames.currentIndex = index;
         }
     }
 
-    function startCanvasAnimation() {
-        var tl = gsap.timeline({
-            scrollTrigger : {
-                trigger : ".parent",
-                start : "top top",
-                end : "50% bottom",
-                scrub : 2,
-            },
-        });
+    // CHANGED: Scroll event to show/hide canvas and animate frames after hero section
+    window.addEventListener("scroll", () => {
+        const parent = document.getElementById("parent");
+        const canvas = document.getElementById("frame");
+        const rect = parent.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-        function updateFrame(index) {
-            return {
-                currentIndex: index,
-                    ease: Linear.ease,
-                    onUpdate: function() {
-                        loadImage(Math.floor(frames.currentIndex));
-                    }
+        // Only animate when #parent is in view
+        if (rect.top <= 0 && Math.abs(rect.top) < rect.height - windowHeight) {
+            canvas.style.opacity = "1";
+            // Calculate scroll percent within #parent
+            let percent = Math.abs(rect.top) / (rect.height - windowHeight);
+            percent = Math.max(0, Math.min(1, percent));
+            let frameIndex = Math.floor(percent * frames.maxIndex);
+
+            if (frameIndex !== frames.currentIndex) {
+                frames.currentIndex = frameIndex;
+                drawFrame(frameIndex);
             }
         }
-
-        tl
-            .to(frames, updateFrame(5), "first")
-            .to(".animate1", {opacity : 0, ease : "linear"}, "first")
-
-            .to(frames, updateFrame(60), "second")
-            .to(".animate2", {opacity : 1, ease : "linear"}, "second")
-
-            .to(frames, updateFrame(600), "third")
-            .to(".animate3", {opacity : 1, ease : "linear"}, "third")
-
-            .to(frames, updateFrame(750), "fourth")
-            .to(".animate4", {opacity : 1, ease : "linear"}, "fourth")
-    }
+        else {
+            canvas.style.opacity = "0";
+        }
+    });
 
     drawPlaceholderImage();
     preLoadImages();
 
     window.addEventListener("resize", function() {
-        loadImage(Math.floor(frames.currentIndex));
+        drawFrame(frames.currentIndex);
     });
 
     // Get Started button functionality

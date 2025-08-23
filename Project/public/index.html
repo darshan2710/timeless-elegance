@@ -17,12 +17,36 @@
 </head>
 
 <body>
+  <!-- Intro Section: Only visible at the very start -->
+  <section id="intro" class="w-full h-screen flex items-center justify-center bg-black">
+    <div class="text-white text-center w-[90%] max-w-[800px] px-4 mx-auto">
+      <h1
+        class="text-5xl md:text-7xl font-bold uppercase tracking-wide leading-tight drop-shadow-2xl luxury-font fade-in-slide"
+        style="--delay: 0s;">
+        Scroll Down to Experience
+      </h1>
+      <br><br>
+      <h2 class="text-4xl md:text-6xl font-semibold uppercase tracking-wide opacity-90 luxury-font fade-in-slide"
+        style="--delay: 0.3s;">
+        Beyond Timekeeping, A Legacy.
+      </h2>
+      <br><br>
+      <h3 class="text-3xl md:text-5xl font-light uppercase tracking-wider opacity-80 italic luxury-font fade-in-slide"
+        style="--delay: 0.6s;">
+        Discover the Art of Horology with Timeless Elegance.
+      </h3>
+    </div>
+  </section>
 
-  <!-- Scrollable Parent -->
+  <!-- Video Animation Section: starts after intro -->
   <div id="parent"
     class="parent relative top-0 left-0 w-full h-[600vh] bg-black opacity-100 transition-opacity duration-700">
-    <div id="main" class="w-full cnav sticky top-0 left-0 h-screen opacity-100 transition-opacity duration-700">
-      <canvas class="w-full h-screen" id="frame"></canvas>
+
+    <!-- Fixed canvas covers viewport during scroll -->
+    <canvas id="frame"
+      style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 10; pointer-events: none;"></canvas>
+
+    <div id="main" class="w-full cnav h-screen opacity-100 transition-opacity duration-700">
       <div
         class="absolute animate1 z-[5] text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-[90%] max-w-[800px] px-4">
         <div
@@ -49,13 +73,6 @@
           </div>
 
           <style>
-            /* Luxury Font Selection */
-            .luxury-font {
-              font-family: 'Canela', 'GFS Didot', 'Cormorant Garamond', serif;
-              letter-spacing: 1px;
-              word-spacing: 3px;
-            }
-
             /* Elegant Faster Fade-In & Slide-Up Animation */
             .fade-in-slide {
               opacity: 0;
@@ -92,17 +109,10 @@
               word-spacing: 2px;
             }
           </style>
-
-
           <br><br>
         </div>
       </div>
     </div>
-  </div>
-  <div class="absolute animate4 z-[2] text-white bottom-10 w-1/2 left-50">
-    <h1 class="leading-20 font-[100] text-3xl opacity-0">
-      Get your luxury from TIMELESS ELEGANCE today only
-    </h1>
   </div>
 
   <!-- Get Started Page -->
@@ -110,7 +120,8 @@
     class="w-full h-screen bg-black flex justify-center items-center opacity-100 transition-opacity duration-700">
     <button id="getStartedBtn"
       class="px-10 py-4 rounded-full bg-gradient-to-r from-silver via-platinum to-silver text-white text-xl font-bold tracking-wide uppercase shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(192,192,192,1),0_0_50px_rgba(229,228,226,0.9)] hover:brightness-150 active:scale-95">
-      <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-200 via-gray-100 to-gray-400">Get Started</span>
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-200 via-gray-100 to-gray-400">Get
+        Started</span>
     </button>
   </div>
 
@@ -475,10 +486,10 @@
                   <button>Add to Favourite</button>
                 </div>
               </div>
-            </div>  
+            </div>
             <div class="item">
               <div class="image">
-                <img src="omega(2).webp" alt="Omega Speedmaster"  >
+                <img src="omega(2).webp" alt="Omega Speedmaster">
               </div>
               <div class="content">
                 <div class="left">
@@ -724,9 +735,12 @@
   </div>
 
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+    integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+    integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
 
 </body>

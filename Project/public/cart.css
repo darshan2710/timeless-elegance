@@ -14,12 +14,9 @@ h1 {
     width: 96px;
     height: 96px;
     object-fit: contain;
-    /* ensures the image fits within the area without cropping */
     border-radius: 8px;
     background-color: #f0f0f0;
-    /* optional background for contrast */
     padding: 5px;
-    /* optional padding */
 }
 
 .cart-wrapper {
